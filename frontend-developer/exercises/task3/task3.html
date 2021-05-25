@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Remote data</h1>
+      <ul>
+        <li>Take the data from the form input and send it to the server.</li>
+        <li>Render the message from the response</li>
+      </ul>
+      <h2>Getting started</h2>
+      <ul>
+        <li>Install dependencies by running <code>npm install</code></li>
+        <li>
+          Start the web server by running <code>npm run start</code>. The server
+          will run on port 3000
+        </li>
+        <li>
+          Make sure you're loading this page from
+          <a href="http://localhost:3000">http://localhost:3000</a> so you don't
+          run into CORS issues
+        </li>
+      </ul>
+
+      <h2>Endpoint</h2>
+      <code>POST /message</code>
+
+      <hr />
+      <h3>Request</h3>
+      <p>Request body must be in JSON</p>
+
+      <strong>Example:</strong>
+      <code>{ "name": "Ada" }</code>
+
+      <hr />
+
+      <h3>Response</h3>
+      <p>Response is sent as JSON</p>
+
+      <table>
+        <thead>
+          <th>HTTP Status Code</th>
+          <th>Description</th>
+          <th>Example</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>200</td>
+            <td>Success</td>
+            <td>
+              <code>{ "message": "Thanks Ada" }</code>
+            </td>
+          </tr>
+          <tr>
+            <td>400</td>
+            <td>Validation failed</td>
+            <td>
+              <code>{ "error": "Name must not be blank" }</code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <form id="form">
+        <label>Your name</label>
+        <input name="name" type="text" />
+
+        <button id="submit" type="submit">Send</button>
+      </form>
+
+      <div id="status-message"></div>
+    </div>
+  </body>
+</html>
