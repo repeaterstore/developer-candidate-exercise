@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <title>Waveform - Task 1 - Product Grid HTML/CSS</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="task1.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Task 1 - Product Grid HTML/CSS</h1>
+    <p>In this task, you will need to create a product listing grid.</p>
+
+    <p>
+      The end result should look like this:
+
+      <br />
+      <a href="example-above-768.png">Above screen size 768px</a>
+
+      <br />
+      <a href="example-below-768.png">Below screen size 768px</a>
+    </p>
+
+    <h2>Requirements</h2>
+    <ul>
+      <li>
+        Above 768px screen sizes, each column should be 25% width. Below 768px,
+        they should be 50% width.
+      </li>
+      <li>On each row, every column should have the same height.</li>
+      <li>
+        The <strong>Buy</strong> button on each column should be aligned at the
+        bottom.
+      </li>
+    </ul>
+
+    <p>
+      For the HTML template, there is a <code>&lt;script type="text/template"&gt;</pre></code> tag inside this file
+      where you will edit the HTML using the Liquid template language. We've provided some Javascript that
+      will automatically render the template on load.
+    </p>
+
+    <p>For CSS, you can edit task1.css inside this directory.</p>
+
+
+    <!-- End of instructions - feel free to remove this -->
+    <hr />
+
+    <!--
+    Add your HTML in this script tag.
+    We're using the Liquid templating language here. You won't need to add any
+    additional Liquid features.
+    https://shopify.github.io/liquid/
+    -->
+    <script id="template" type="text/template">
+      <div>
+        {% for product in products %}
+          <div>
+            <div><img src="{{ product.image }}"></div>
+            <div class="product-title">{{ product.title }}</div>
+            <div class="product-price">{{ product.price }}</div>
+            <div class="product-description">{{ product.description }}</div>
+            <button class="product-buy-button">Buy</button>
+          </div>
+        {% endfor %}
+      </div>
+    </script>
+
+    <!--
+    END
+    Do not touch anything below
+    -->
+    <div id="result"></div>
+    <script type="module">
+      import faker from "https://cdn.skypack.dev/faker";
+      import * as liquidjs from "https://cdn.skypack.dev/liquidjs";
+
+      faker.seed(123);
+      function generateProduct() {
+        return {
+          title: faker.commerce.productName(),
+          description: faker.lorem.sentences(5),
+          price: faker.commerce.price(),
+          image: faker.image.unsplash.objects(500, 500, "product"),
+        };
+      }
+
+      const data = {
+        products: [
+          generateProduct(),
+          generateProduct(),
+          generateProduct(),
+          generateProduct(),
+          generateProduct(),
+          generateProduct(),
+          generateProduct(),
+          generateProduct(),
+        ],
+      };
+      const template = document.querySelector("#template");
+      const result = document.querySelector("#result");
+      const engine = new liquidjs.Liquid();
+
+      engine
+        .parseAndRender(template.innerHTML, data)
+        .then((html) => (result.innerHTML = html));
+    </script>
+  </body>
+</html>
