@@ -1,81 +1,67 @@
 <html>
 <head>
-  <title>Waveform - Task 3 - Remote Data (JS)</title>
+  <title>Waveform - Task 3 - Tag Form (JS)</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"/>
 </head>
 <body>
 <div class="container">
-  <h1>Task 3 - Remote Data (JS)</h1>
-  <p>For this exercise you need to:</p>
+  <h1>Task 3 - Tag Form (JS)</h1>
+
+  <p>For this exercise you need to build a simple tag form - a form that manages a list of unique values.</p>
+
+  <p>You might have seen more complex versions of this before. Here are a few examples:l</p>
+
+  <img width="256" src="tag-input-example-1.png"/>
+  <img width="256" src="tag-input-example-2.png"/>
+
+  <hr/>
+
+  <h2>Requirements</h2>
+
+  <p>We just want to implement the basic functionality:</p>
+
   <ul>
-    <li>Take the data from the form input and send it to the server.</li>
-    <li>Render the message from the response in the "status-message" div element.</li>
-  </ul>
-  <h2>Getting started</h2>
-  <ul>
-    <li>Install dependencies by running <code>npm install</code></li>
     <li>
-      Start the web server by running <code>npm run start</code>. The server
-      will run on port 3000
+      An input to add a tag to the list
+      <ul>
+        <li>If the tag is already in the list, it should not add it</li>
+        <li>The input's value should be reset if the value is added</li>
+      </ul>
     </li>
     <li>
-      Make sure you're loading this page from
-      <a href="http://localhost:3000">http://localhost:3000</a> so you don't
-      run into CORS issues
+      A list of all the added tags.
+      <ul>
+        <li>
+          Each item should have a button to remove itself from the list.
+        </li>
+      </ul>
     </li>
   </ul>
 
-  <h2>Endpoint</h2>
-  <code>POST /message</code>
+  <h3>Example</h3>
 
-  <hr/>
-  <h3>Request</h3>
-  <p>Request body must be in JSON</p>
+  <video src="example.mp4" controls style="width: 768px"></video>
 
-  <strong>Example:</strong>
-  <code>{ "name": "Ada" }</code>
+  <h2>Notes</h2>
 
-  <hr/>
+  <p>You can optionally use the following HTML as a starting point.</p>
 
-  <h3>Response</h3>
-  <p>Response is sent as JSON</p>
+  <pre><code>&lt;div&gt;
+&lt;div&gt;
+hello
+&lt;button&gt;Delete&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-  <table>
-    <thead>
-    <th>HTTP Status Code</th>
-    <th>Description</th>
-    <th>Example</th>
-    </thead>
-    <tbody>
-    <tr>
-      <td>200</td>
-      <td>Success</td>
-      <td>
-        <code>{ "message": "Thanks Ada" }</code>
-      </td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>Validation failed</td>
-      <td>
-        <code>{ "error": "Name must not be blank" }</code>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+&lt;hr /&gt;
 
-  <hr/>
-
-  <form id="form">
-    <label>Your name</label>
-    <input name="name" type="text"/>
-
-    <button id="submit" type="submit">Send</button>
-  </form>
-
-  <div id="status-message"></div>
+&lt;form&gt;
+&lt;label&gt;Add a tag&lt;/label&gt;
+&lt;input type=&quot;text&quot; /&gt;
+&lt;button type=&quot;submit&quot;&gt;Add tag&lt;/button&gt;
+&lt;/form&gt;</code></pre>
 </div>
 </body>
 </html>

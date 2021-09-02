@@ -20,8 +20,8 @@ minutes, and while it is not a timed challenge there is no need to go above-and-
 Here are the exercises:
 
 * [Task 1 - Product Grid (HTML/CSS)](exercises/task1/task1.html)
-* [Task 3 - Remote Data (JS)](exercises/task3/task3.html)
-* [Task 4 - Tag Form (JS)](exercises/task4/task4.html)
+* [Task 2 - Remote Data (JS)](exercises/task2/task2.html)
+* [Task 3 - Tag Form (JS)](exercises/task3/task3.html)
 
 ## How to submit your work
 

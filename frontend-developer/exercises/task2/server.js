@@ -5,7 +5,7 @@ var app = express();
 app.use(express.json());
 
 app.get("/", function (req, res) {
-  return res.sendFile(path.join(__dirname, "task3.html"));
+  return res.sendFile(path.join(__dirname, "task2.html"));
 });
 
 app.post("/message", function (req, res) {
